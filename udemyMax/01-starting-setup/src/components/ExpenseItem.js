@@ -1,6 +1,7 @@
 // Komponenty w React to najprościej nazywając funkcje JS
 import ExpenseDate from './ExpenseDate';
 import './ExpenseItem.css' // Musimy zaimportować plik CSS
+import Card from './Card'; // Importujemy children z card, aby nadać border-radius i shadowbox
 
 const ExpenseItem = (props) => {
     // ** Nazwa parametru jest dowolna, aczkolwiek przyjęto aby wpisać props. Jest to odwołanie do zmiennej przechowywanej w obiekcie "props"
@@ -11,7 +12,7 @@ const ExpenseItem = (props) => {
 
     return (
         // Wszystko musi byc w jednym "root" tzn nie możemy miec elementu złożonego z 3 różnych divów, tylko jednym divem "wrapperem" zawijamy wszystko w jednego roota
-        <div className="expense-item">
+        <Card className="expense-item">
             {/* <div> Max postanowił rozdzielić datę na oddzielny komponent
                 <div>{month}</div>
                 <div>{year}</div>
@@ -24,7 +25,7 @@ const ExpenseItem = (props) => {
                 <h2>{props.title}</h2>
                 <div className="expense-item__price">${props.amount}</div>
             </div>
-        </div>
+        </Card>
         // Aby umieścić zmienną w React wystarczą same "wąsy" {nazwaZmiennej} bez dolara
         // Nazwy klas zapisujemy jako "className"
     );
