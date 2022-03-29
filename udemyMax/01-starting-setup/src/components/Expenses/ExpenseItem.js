@@ -1,7 +1,7 @@
 // Komponenty w React to najprościej nazywając funkcje JS
 import ExpenseDate from './ExpenseDate';
 import './ExpenseItem.css' // Musimy zaimportować plik CSS
-import Card from './Card'; // Importujemy children z card, aby nadać border-radius i shadowbox
+import Card from '../UI/Card'; // Importujemy children z card, aby nadać border-radius i shadowbox
 
 const ExpenseItem = (props) => {
     // ** Nazwa parametru jest dowolna, aczkolwiek przyjęto aby wpisać props. Jest to odwołanie do zmiennej przechowywanej w obiekcie "props"
