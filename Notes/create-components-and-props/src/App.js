@@ -31,4 +31,4 @@ export default App;
   // 2.1 userArray = (newUser) Jest to funkcja, która wywołujemy, newUser to parametr w którym jest przechowywany obiekt z danymi użytkownika
   // 2.2 setUserToArray jest to funkcja z useState wywołana w funkcji userArray. prevUsers to wszystkie elementy, które posiadała tablica "users" przed wywołaniem tej funkcji, które potem operatorem spread rozkładamy na końcu naszej tablicy, a na samym początku wpichamy nową wartość newUser
 
-// 3.
+// 3. Kiedy mamy utworzoną tablicę z użytkownikami, jej zawartość jest przekazywana do komponentu "UserList" w propsie "submitUsers". Dalszy opis jest w wyżej wymienionym komponencie 
