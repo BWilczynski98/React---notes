@@ -26,4 +26,7 @@ export default UsersList;
 
 // 5. props.submitUsers (mówi nam dokładnie weź to co zostało przekazane w parametrze [props] wybierz całą tablicę, która jest teraz przechowywana pod nazwą z propsu w App.js [submitUsers]) i zastosuj na każdym elemencie mape.
 
-// 6. map()
+// 6. map(el => <userForm ...wartości />) - Mówi weź każdy element i dla każdego elementu wywołaj komponent UserForm i dlatego komponentu prześlij nowe propsy "key={el.id}", "name={el.userName}", "lastName={el.userLastName}", "email={el.userEmail}".
+    //6.1 W wartościach odwołujemy się bezpośrednio od nazwy naszego pojedyńczego elementy, w tym przypadku "el", a po kropce z racji tego, że to obiekt wybieramy dokładną nazwę wartości jaką przechowuje obiekt
+    //6.2 Ważne jest, aby na mapach korzystać z kluczy https://pl.reactjs.org/docs/lists-and-keys.html
+// Dalszy komentarz w UserForm

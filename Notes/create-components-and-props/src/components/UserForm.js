@@ -12,3 +12,11 @@ const UserForm = (props) => {
 }
 
 export default UserForm
+
+// ** HOW WORK
+
+// 7. UserForm dostaje w propsie "key", "name", "lastName" i "email". Są to moje własnę nazwy.
+
+// 8. Aby uzyskać do nich dostęp należy się odwołac poprzez props.name itp
+
+// 9. W porządanych miejscach wstawiamy odpowiednie wartości, które mają się wyrenderować
