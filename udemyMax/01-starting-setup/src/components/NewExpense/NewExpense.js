@@ -1,14 +1,14 @@
 import './NewExpense.css'
 import ExpenseForm from './ExpenseForm';
 
-const NewExpense = () => {
+const NewExpense = (props) => {
 
     const enterExpenseData = (expenseData) => {
         const expenseDataWithId = {
             ...expenseData,
             id: Math.random().toString(),
         };
-        console.log(expenseDataWithId)
+        props.pullExpenses(expenseDataWithId);
     };
     return (
         <div className='new-expense'>

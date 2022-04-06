@@ -1,8 +1,8 @@
+import { useState } from "react";
 import Expenses from "./components/Expenses/Expenses";
-import NewExpense from "./components/NewExpense/NewExpense"
+import NewExpense from "./components/NewExpense/NewExpense";
 
-
-const expenses = [
+const DUMMY_EXPENSES = [
   {
     id: 'e1',
     title: 'Toilet Paper',
@@ -23,14 +23,20 @@ const expenses = [
     date: new Date(2021, 5, 12),
   },
 ];
-// Stworzyliśmy tablicę z 4 obiektami, możemy ustawić naszym komponentom "ExpenseItem" "parametry", które będą przyjmować dynamicznie. W zależności co wprowadzi np. użytkownik. Używamy do tego "props" (ang. rekwizyt/podpora/właściwość).
 
 function App() {
+  const [expenses, setExpensesToArray] = useState(DUMMY_EXPENSES)
+  const addExpenseToArray = (expenses) => {
+    setExpensesToArray((prevExpenses) => {
+      return [expenses, ...prevExpenses];
+    });
+  };
   return (
     <div>
-      <NewExpense />
-      <Expenses items={expenses} />
-    </div> 
+      <NewExpense pullExpenses={addExpenseToArray} />
+
+      <Expenses arrayExpenses={expenses} />
+    </div>
   );
 };
 

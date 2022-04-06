@@ -5,7 +5,7 @@ const ExpenseForm = (props) => {
     const [enteredTitle, setEnteredTitle] = useState('');
     const [enteredAmount, setEnteredAmount] = useState('');
     const [enteredDate, setEnteredDate] = useState(''); //<-- Możemy to zapisać w inny sposób
-
+    const [toggle, setToggle] = useState(false)
     // ** W tym miejscu nadajemy value dla naszych wartości title, amount i data. 
     // *! Przypisujemy to do funkcji, nie do zmiennej
     const titleChangeHandler = (event) => {
@@ -20,30 +20,32 @@ const ExpenseForm = (props) => {
 
 
     const submitHandler = (event) => { 
-        // *? https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault
-        event.preventDefault(); // onSubmit automatycznie odświeża strone, jest to domyślne zachowanie form. Ta metoda to wyłączy
-        
-        // ** Przypisujemy do obiektu naszę nadpisane wartości przez input user
+        event.preventDefault(); 
+
         const expenseData = {
             title: enteredTitle,
-            amount: enteredAmount,
+            amount: +enteredAmount,
             date: new Date(enteredDate),
         };
-        console.log(expenseData);
-
-        // ** Przekazanie z parent do child i z powrotem z child do parent poprzez props i funkcje.
-        // *? https://javascript.plainenglish.io/how-to-pass-props-from-child-to-parent-component-in-react-d90752ff4d01
-
         props.onEnterExpenseData(expenseData);
 
         // ** Reset inputów
         setEnteredTitle('');
         setEnteredAmount('');
         setEnteredDate('');
-
+        expenseHanlder();
         // *! Trzeba ustawić w inputach value
     };
-   
+
+    const expenseHanlder = () => {
+        setToggle(prev => !prev)
+    }
+
+    if (toggle === false) {
+        return (
+            <button onClick={expenseHanlder}>Add new expense</button>
+        );
+    } else {
     return (
         <form onSubmit={submitHandler}> 
             <div className='new-expense__controls'>
@@ -69,10 +71,12 @@ const ExpenseForm = (props) => {
                 </div>
             </div>
             <div className='new-expense__actions'>
+                <button onClick={expenseHanlder}>Cancel</button>
                 <button type='submit'>Add Expense</button>
             </div>
         </form>
     );
+    }
 };
 
 export default ExpenseForm;
