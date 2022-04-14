@@ -33,7 +33,7 @@ function App() {
   };
   return (
     <div>
-      <NewExpense pullExpenses={addExpenseToArray} />
+      <NewExpense addExpenseToArray={addExpenseToArray} name="Bartek" />
 
       <Expenses arrayExpenses={expenses} />
     </div>

@@ -67,6 +67,7 @@ const InputText = (props) => {
       </form>
     </div>
   )
+
 }
 
 export default InputText

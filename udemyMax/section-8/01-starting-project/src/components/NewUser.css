@@ -1,0 +1,10 @@
+.new-user-container {
+    width: 100%;
+    border: 1px solid #9999;
+    margin: 10px auto;
+    padding: 10px 5px;
+}
+
+.user-text {
+    font-weight: bold;
+}
