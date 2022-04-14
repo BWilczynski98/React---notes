@@ -1,17 +1,18 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useRef } from 'react';
 import './Inputs.css'
 import { GlobalContext } from '../Global';
 import InvalidInput from './Error/InvalidInput';
 
 const Inputs = () => {
-    const [userName, setUserName] = useState('');
-    const [userAge, setUserAge] = useState('');
+    const nameUser = useRef();
+    const ageUser = useRef();
     const [users, setUsers] = useContext(GlobalContext);
     const [error, setError] = useState();
 
     const createUser = (e) => {
         e.preventDefault();
-
+        const userName = nameUser.current.value;
+        const userAge = ageUser.current.value;
         if (userName.trim() === '' || userAge === '') {
             setError({
                 title: 'Invalid input',
@@ -19,7 +20,6 @@ const Inputs = () => {
             });
             return;
         }
-
         if (+userAge < 1) {
             setError({
                 title: 'Invalid age',
@@ -27,13 +27,13 @@ const Inputs = () => {
             });
             return;
         }
-
         setUsers(prevUsers => [...prevUsers, { name: userName, age: userAge }])
-        setUserName('');
-        setUserAge('');
+        nameUser.current.value = '';
+        ageUser.current.value = '';
+
     };
 
-    const closeError = (params) => {
+    const closeError = () => {
         setError(null);
     }
 
@@ -48,8 +48,7 @@ const Inputs = () => {
                         name='name'
                         id='username'
                         className='user-input'
-                        value={userName}
-                        onChange={e => { setUserName(e.target.value) }}
+                        ref={nameUser}
                     />
                 </div>
                 <div className='input-container'>
@@ -59,8 +58,7 @@ const Inputs = () => {
                         name='age'
                         id='age'
                         className='user-input'
-                        value={userAge}
-                        onChange={e => { setUserAge(e.target.value) }}
+                        ref={ageUser}                    
                     />
                 </div>
                 <div className='input-container'>
@@ -72,3 +70,5 @@ const Inputs = () => {
 }
 
 export default Inputs;
+
+// W tym przypadku useRef posłużyło do przypisania wartości bez aktualizacji stanu zmiennej po kazdym nacisnieciu klawisza przez użytkownika, a bezpośrednio bo kliknięciu btn. Importujemy useRef z reacta, tworzymy zmienną która będzie odpowiadać za useRef, w inpucie dajemy ref={nazwa naszego useRef} w funkcji robimy nową zmienną, która będzie przechowywać wartość nowaZmienna = zmiennaRef.current.value
