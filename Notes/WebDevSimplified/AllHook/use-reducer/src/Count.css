@@ -1,0 +1,10 @@
+.count-wrapper {
+    display: flex;
+
+}
+
+.count-btn {
+    width: 50px;
+    font-weight: bold;
+    font-size: 30px;
+}

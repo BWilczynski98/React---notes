@@ -1,0 +1,8 @@
+div {
+    margin: 10px auto;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+}
