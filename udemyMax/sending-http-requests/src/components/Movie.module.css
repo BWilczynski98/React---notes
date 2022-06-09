@@ -1,12 +1,18 @@
 .container {
-    width: 400px;
-    height: 400px;
-    padding: 20px;
+    width: 600px;
+        height: 250px;
+        padding: 10px 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: darkgray;
+    background-color: white;
     margin: 10px 0px;
     border-radius: 10px;
+    gap: 10px;
+        text-align: justify;
+    }
+    
+    .release-date {
+        font-weight: bold;
 }

@@ -54,8 +54,9 @@ function App() {
     <div className="App">
       <section className='section-btn'><button onClick={fetchMoviesHandler}>Fetch films</button></section>
       <section>
-        {!isLoading && <MovieList movies={movies} />}
-        {isLoading && <p>Loading...</p>}
+        {!isLoading && movies.length > 0 && <MovieList movies={movies} />}
+        {!isLoading && movies.length == 0 && <p className='alert'>Found no movies</p>}
+        {isLoading && <p className='alert'>Loading...</p>}
       </section>
     </div>
   );
