@@ -1,16 +1,16 @@
 .container {
     width: 600px;
-        height: 250px;
+    height: 250px;
         padding: 10px 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: white;
+    background-color: darkgray;
     margin: 10px 0px;
     border-radius: 10px;
     gap: 10px;
-        text-align: justify;
+    text-align: justify;
     }
     
     .release-date {
