@@ -3,7 +3,7 @@ import Card from './Card';
 
 
 const ForwardCounter = () => {
-  const counter = useCounter('+, 3');
+  const counter = useCounter();
   return <Card>{counter}</Card>;
 };
 
