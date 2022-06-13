@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 
-const useHttp = (queryOptions, applyData) => {
+const useHttp = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    const enquire = async () => {
+    const enquire = useCallback(async (queryOptions, applyData) => {
 
         setIsLoading(true);
         setError(null);
@@ -25,13 +25,13 @@ const useHttp = (queryOptions, applyData) => {
             setError(err.message || 'Something went wrong!');
         }
         setIsLoading(false);
-    };
+    }, []);
 
     return {
         isLoading,
         error,
         enquire
     }
-}
+};
 
 export default useHttp;
