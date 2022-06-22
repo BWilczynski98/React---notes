@@ -5,7 +5,7 @@ const useHttp = () => {
     const [error, setError] = useState(null);
 
     const enquire = useCallback(async (queryOptions, applyData) => {
-
+        console.log(queryOptions);
         setIsLoading(true);
         setError(null);
         try {
